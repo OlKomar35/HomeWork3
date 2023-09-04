@@ -6,15 +6,18 @@ public class Intern extends Employee {
     Random random = new Random();
     String[] names = new String[]{"Анатолий", "Глеб", "Клим", "Мартин", "Лазарь", "Владлен", "Клим", "Панкратий", "Рубен", "Герман"};
     String[] surNames = new String[]{"Григорьев", "Фокин", "Шестаков", "Хохлов", "Шубин", "Бирюков", "Копылов", "Горбунов", "Лыткин", "Соколов"};
+    int[] ages = new int[]{25, 35, 50, 42, 32, 22, 18, 21, 38};
     int salaryIndex = random.nextInt(200, 500);
-    public Intern(String name, String surName, double salary) {
-        super(name, surName, salary);
+
+    public Intern(String name, String surName, int age, double salary) {
+        super(name, surName, age, salary);
     }
 
     public Intern() {
         this.name = names[random.nextInt(names.length)];
         this.surName = surNames[random.nextInt(surNames.length)];
-        this.salary = 100 * salaryIndex;
+        this.salary = 0;
+        this.age = ages[random.nextInt(ages.length)];
     }
 
     /**
@@ -29,7 +32,7 @@ public class Intern extends Employee {
 
     @Override
     public String toString() {
-        return String.format("%s %s; Стажер; Работает за еду, т.е. бесплатно",
-                surName, name);
+        return String.format("%s %s %d лет; Стажер; Работает за еду, т.е. бесплатно",
+                surName, name,age);
     }
 }

@@ -1,4 +1,4 @@
-package com.komar;
+package com.komar.employees;
 
 public abstract class Employee implements Comparable<Employee> {
     /**

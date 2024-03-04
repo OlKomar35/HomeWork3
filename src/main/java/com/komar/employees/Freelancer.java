@@ -1,5 +1,6 @@
-package com.komar;
+package com.komar.employees;
 
+import com.komar.employees.Employee;
 import java.util.Random;
 
 public class Freelancer extends Employee {
@@ -22,7 +23,7 @@ public class Freelancer extends Employee {
 
     @Override
     public double calculateSalary() {
-        return salary*8*24;
+        return salary*8*20.8;
     }
 
     @Override

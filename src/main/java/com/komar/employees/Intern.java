@@ -1,5 +1,6 @@
-package com.komar;
+package com.komar.employees;
 
+import com.komar.employees.Employee;
 import java.util.Random;
 
 public class Intern extends Employee {

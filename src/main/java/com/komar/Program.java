@@ -1,20 +1,20 @@
 package com.komar;
 
-import java.util.ArrayList;
+import com.komar.comparators.AgeComparator;
+import com.komar.comparators.NameAscendingComparator;
+import com.komar.comparators.NameDescendingComparator;
+import com.komar.comparators.SalaryComparator;
+import com.komar.employees.Employee;
+import com.komar.employees.Freelancer;
+import com.komar.employees.Intern;
+import com.komar.employees.Worker;
+import com.komar.iterator.EmployeeCollection;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 public class Program {
 
     private static Random random = new Random();
-
-    /**
-     * TODO: Переработать метод generateWorker. Метод должен возвращать случайного
-     *  сотрудника (Freelancer или Worker)
-     *
-     * @return
-     */
 
     public static Employee generateRandomEmployee() {
         String[] names = new String[]{"Анатолий", "Глеб", "Клим", "Мартин", "Лазарь", "Владлен", "Клим", "Панкратий", "Рубен", "Герман"};
@@ -28,19 +28,19 @@ public class Program {
         switch (employeeType) {
             case 0:
                 return new Worker(names[random.nextInt(names.length)],
-                        surNames[random.nextInt(surNames.length)],
-                        ages[random.nextInt(ages.length)],
-                        100 * salaryIndex);
+                                  surNames[random.nextInt(surNames.length)],
+                                  ages[random.nextInt(ages.length)],
+                                  100 * salaryIndex);
             case 1:
                 return new Freelancer(names[random.nextInt(names.length)],
-                        surNames[random.nextInt(surNames.length)],
-                        ages[random.nextInt(ages.length)],
-                        10 * salaryIndex);
+                                      surNames[random.nextInt(surNames.length)],
+                                      ages[random.nextInt(ages.length)],
+                                      10 * salaryIndex);
             case 2:
                 return new Intern(names[random.nextInt(names.length)],
-                        surNames[random.nextInt(surNames.length)],
-                        ages[random.nextInt(ages.length)],
-                        0);
+                                  surNames[random.nextInt(surNames.length)],
+                                  ages[random.nextInt(ages.length)],
+                                  0);
             default:
                 throw new IllegalArgumentException("Invalid employee type: " + employeeType);
         }
@@ -97,5 +97,10 @@ public class Program {
             System.out.println(employee);
         }
 
+        System.out.println("\nВывод всех сотрудников, без сортировки");
+        EmployeeCollection collection = new EmployeeCollection(employees);
+        for (Employee employee : collection) {
+            System.out.println(employee);
+        }
     }
 }
